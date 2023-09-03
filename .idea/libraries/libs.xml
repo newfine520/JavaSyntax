@@ -5,6 +5,12 @@
       <root url="jar://$PROJECT_DIR$/libs/jackson-annotations-2.9.8.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/jackson-databind-2.9.8.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/jackson-all-1.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/aopalliance.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/aspectjweaver-1.9.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/cglib-nodep-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/spring-core-5.2.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/spring-context-5.2.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/spring-beans-5.2.8.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

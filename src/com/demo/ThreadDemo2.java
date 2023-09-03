@@ -1,5 +1,7 @@
 package com.demo;
 
+import java.util.Arrays;
+
 public class ThreadDemo2 implements Runnable {
     //静态变量：共享资源（临界资源）
     static int i=0;
@@ -24,6 +26,7 @@ public class ThreadDemo2 implements Runnable {
         t1.join();
         t2.join();
         System.out.println(i);
+
     }
 
 

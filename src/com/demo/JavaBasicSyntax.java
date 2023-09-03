@@ -1,8 +1,11 @@
 package com.demo;
 
+import com.demo.constant.CommonConstant;
 import jdk.nashorn.internal.parser.JSONParser;
 
 import java.io.InputStream;
+import java.lang.reflect.Proxy;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -131,7 +134,6 @@ public class JavaBasicSyntax {
 //        {
 //            System.out.println(str);
 //        }
-
       /*  Hashtable hashTable=new Hashtable();
         hashTable.put("MySql","MySqlClient");
         hashTable.put("SqlServer","SqlServerClient");
@@ -189,7 +191,7 @@ public class JavaBasicSyntax {
 
         //new ThreadDemo().ThreadInterruptTest();
 
-        // new ThreadDemo2().ThreadDemo2Test1();
+        //new ThreadDemo2().ThreadDemo2Test1();
 
         //new ListToString().ListToStringTest();
 
@@ -199,8 +201,7 @@ public class JavaBasicSyntax {
 //        boolean flag="abc".equals("abc");//true
 //        boolean result="abc"=="abc";//true
 //        boolean strFlag=new String("abc")==new String("abc");//false
-//          boolean intFlag=new Integer(1)==new Integer(1);//false
-
+         //boolean intFlag=new Integer(1)==new Integer(1);//false
         //try catch
 //       try
 //        {
@@ -373,7 +374,13 @@ public class JavaBasicSyntax {
 
         //20221130 end
 
-        //20221219 String初始值（Java类变量有默认值，可以不初始化；但成员变量必须初始化） start
+        //20221219 String初始值（Java变量作为类的属性（static属性与instance属性）有默认值，可以不初始化；但成员变量必须初始化） start
+        /*
+        注：变量作为类的属性（值域）没有初始化时，JVM 会自动把它初始化为该类型变量的默认初始值。int 默认初始值为 0，float 默认初始值为 0.0f，long 默认初始值为 0，double 默认初始值为 0.0，boolean 默认初始值为 false，char 默认初始值为 0（ASCII 码），所有对象（包括数组）默认初始值为 null。
+        对于不同的类属性，static 属性与 instance 属性，初始化的时机是不同的：
+        instance 属性在创建实例时初始化；
+        static 属性在类加载，也就是第一次用到这个类的时候初始化，对于之后的实例的创建，不再次进行初始化。
+         */
         //String s;
         //System.out.println("s="+s);//由于s没有初始化，所以编译不能通过
         //20221219 end
@@ -382,6 +389,53 @@ public class JavaBasicSyntax {
         //20230128 start
 
         //20230128 end
+
+        //20230611 start
+//        String name="张三";
+//        System.out.println(name.hashCode());
+
+
+//        Integer a1=128,b1=128;
+//        if(a1==b1)//a1.equals(b1) true  a1==b1 false
+//        {
+//            System.out.println("a");
+//        }
+//        else
+//        {
+//            System.out.println("b");
+//        }
+
+//        int int1=12;
+//        int int2=12;
+//        Integer integer1=new Integer(12);
+//        Integer integer2=new Integer(12);
+//        Integer integer3=new Integer(127);
+//
+//        Integer a1=127;
+//        Integer a2=127;
+//
+//        Integer a=128;
+//        Integer b=128;
+//        System.out.println(a==b);
+        //20230611 end
+
+        //20230613 start
+        //new StreamDemo().StreamTest();
+
+        //20230613 end
+
+        //20230831 start
+//        BigDecimal bigDecimalZeroPointOne=new BigDecimal("0.10");//用String构造bigdecimal
+//        System.out.println(CommonConstant.APPROVE_TOTAL_AMOUNT.equals(bigDecimalZeroPointOne));//false 不等
+//        System.out.println(CommonConstant.APPROVE_TOTAL_AMOUNT.compareTo(bigDecimalZeroPointOne));//0 相等（-1：左边数小于右边数 1：左边数大于右边数 ）
+//        BigDecimal b8 = BigDecimal.valueOf(0.005);
+//        BigDecimal b9= BigDecimal.valueOf(10000);
+//
+//        System.out.println(b8.add(b9));   //10000.005
+//        System.out.println(b8.subtract(b9));    //-9999.995
+//        System.out.println(b8.divide(b9,20,BigDecimal.ROUND_HALF_UP)); //5.0000000000000E-7 以科学计数法表示
+//        System.out.println(b8.divide(b9,20,BigDecimal.ROUND_HALF_UP).toPlainString());//0.00000050000000000000
+        //20230831 end
     }
 
 
@@ -490,39 +544,60 @@ public class JavaBasicSyntax {
 
         //System.out.println(tempList);
 
-
-
     }
 
 
     public  void getHashMapInfo()
     {
         HashMap<Student,String> hm=new HashMap<Student,String>();
-        hm.put(new Student("张三",21),"上海");
-        hm.put(new Student("李四",23),"北京");
-        hm.put(new Student("王五",28),"杭州");
-        hm.put(new Student("王五",28),"哈尔滨");
+        hm.put(new Student("张三1",21),"上海");
+        hm.put(new Student("李四2",23),"北京");
+        hm.put(new Student("王五3",28),"杭州");
+        hm.put(new Student("王五4",28),"哈尔滨");
+        hm.put(new Student("王五5",28),"哈尔滨");
+        hm.put(new Student("王五6",28),"哈尔滨");
+        hm.put(new Student("王五7",28),"哈尔滨");
+        hm.put(new Student("王五8",28),"哈尔滨");
+        hm.put(new Student("王五9",28),"哈尔滨");
+        hm.put(new Student("王五10",28),"哈尔滨");
+        hm.put(new Student("王五11",28),"哈尔滨");
+        hm.put(new Student("王五12",28),"哈尔滨");
+        hm.put(new Student("王五13",28),"哈尔滨");
+        hm.put(new Student("王五14",28),"哈尔滨");
+        hm.put(new Student("王五15",28),"哈尔滨");
+        hm.put(new Student("王五16",28),"哈尔滨");
+        hm.put(new Student("王五17",28),"哈尔滨");
+        hm.put(new Student("王五18",28),"哈尔滨");
+        hm.put(new Student("王五19",28),"哈尔滨");
+        hm.put(new Student("王五20",28),"哈尔滨");
+        hm.put(new Student("王五21",28),"哈尔滨");
+        hm.put(new Student("王五22",28),"哈尔滨");
+        hm.put(new Student("王五23",28),"哈尔滨");
+        hm.put(new Student("王五24",28),"哈尔滨");
+        hm.put(new Student("王五25",28),"哈尔滨");
+
+
 
         //1、keySet取出
          Set<Student> keySet=hm.keySet();
        for(Iterator<Student> it=keySet.iterator();it.hasNext();)
-         for(Student s:keySet)
+         //for(Student s:keySet)
          {
-            //Student s=it.next();
+            Student s=it.next();
             System.out.println(s.getName()+" "+s.getAge()+" "+hm.get(s));
          }
 
         //2、EntrySet
-//        Set<Map.Entry<Student,String>> entrySet=hm.entrySet();
-//        //for(Iterator<Map.Entry<Student,String>> iter=entrySet.iterator();iter.hasNext();)
-//        for(Map.Entry<Student,String> en:entrySet)
-//        {
-//            //Map.Entry<Student,String> en=iter.next();
-//            Student s=en.getKey();
-//            String address=en.getValue();
-//            System.out.println(s.getName()+" "+s.getAge()+" "+address);
-//
-//        }
+        Set<Map.Entry<Student,String>> entrySet=hm.entrySet();
+        for(Iterator<Map.Entry<Student,String>> iter=entrySet.iterator();iter.hasNext();)
+        for(Map.Entry<Student,String> en:entrySet)
+        {
+            //Map.Entry<Student,String> en=iter.next();
+            Student s=en.getKey();
+            String address=en.getValue();
+            System.out.println(s.getName()+" "+s.getAge()+" "+address);
+
+        }
     }
     public static int  calculateNum(int num)
     {

@@ -21,7 +21,10 @@ public class ArrayListDemo {
         }
 
         //ArrayList和数组互相转换
-        List<String> typeList= Arrays.asList("Short","Integer","Long");
+        //不建议(通过Arrays.asList(strArray) 方式,将数组转换List后，不能对List增删，只能查改，否则抛异常（原因解析：Arrays.asList(strArray)返回值是java.util.Arrays类中一个私有静态内部类java.util.Arrays.ArrayList，它并非java.util.ArrayList类。java.util.Arrays.ArrayList类具有 set()，get()，contains()等方法，但是不具有添加add()或删除remove()方法,所以调用add()方法会报错。))：
+        //List<String> typeList= Arrays.asList("Short","Integer","Long");
+        //建议：
+        ArrayList<String> typeList = new ArrayList<String>(Arrays.asList("Short","Integer","Long")) ;
         String[] names={"Short","Integer","Long"};
         List<String> nameList=new ArrayList<>();
         nameList.addAll(Arrays.asList(names));

@@ -2,6 +2,7 @@ package com.demo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -113,9 +114,7 @@ public class ThreadDemo4 extends Thread{
 //                System.out.println(data);
 //            });
 //        }
-
-
-
+        
         //*************************************************
         //ThreadLocal
 
